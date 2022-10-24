@@ -36,16 +36,32 @@ Pet.prototype.walk = function () {
 const nibbles = 3
 Pet.prototype.snack = function () {
     this.hunger -= nibbles;
-    if(this.hunger < minimumHunger) {
+    if((this.hunger)< minimumHunger) {
         this.fitness = minimumHunger;
 }};
 
-//finds a naughty lasagna and aint hungry no mo
+//finds a naughty lasagna and aint hungry no mogit add .
 Pet.prototype.lasagna = function () {
     if((this.hunger) >= minimumHunger) {
     return this.hunger = minimumHunger;
 };
 };
+
+const fitnessDanger = 3
+const hungerDanger = 5
+//your pet needs a check up to see its current state of health
+Pet.prototype.checkUp = function () {
+    if((this.fitness) <= fitnessDanger && (this.hunger) >= hungerDanger) {
+        return 'Time for my lazy owner to walk me for a walk and feed me, made the commitment?? make sure you keep it!';
+    } else if ((this.fitness) <= fitnessDanger) {
+        return "I need to walk... why don't you ever walk me?"
+    } else if ((this.hunger) >= hungerDanger) {
+        return "Please feed me, you never stop eating, why can't I??"
+    } else {
+        return "I'm doing just fine, I want, nor need NOTHING from you... come back when you have something worth my time"
+    }
+}
+
 
 
 
