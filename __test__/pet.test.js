@@ -58,5 +58,30 @@ describe('exercise your pet, take for a walk', () => {
     })
 })
 
+describe('feed your pet', () => {
+    it('pet hunger decreased', () => {
+        const pet = new Pet('Fido');
+        pet.walk();
+        expect(pet.hunger).toEqual(5);      
+        pet.snack();
+        expect(pet.hunger).toEqual(2);
+    })
+    it('pet hunger decreased', () => {
+        const pet = new Pet('Fido');
+            pet.walk();
+            expect(pet.hunger).toEqual(5);      
+            pet.lasagna ();
+            expect(pet.hunger).toEqual(0)
+    }); 
+});
 
-
+describe('lasagna in park', () => {
+    it('pet hunger decreased', () => {
+        const pet = new Pet('Fido');
+        pet.walk();
+        pet.walk();
+        expect(pet.hunger).toEqual(10);      
+        pet.lasagna();
+        expect(pet.hunger).toEqual(0);
+    });
+});
