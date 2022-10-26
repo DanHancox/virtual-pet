@@ -1,6 +1,6 @@
 const maximumFitness = 10;
 const minimumFitness = 0;
-
+const maximumHunger = 10;
 const minimumHunger = 0;
 const startingAge = 0;
 const lifeSpan = 30;
@@ -16,7 +16,7 @@ function Pet(name){
 
 Pet.prototype = {
     get isAlive () {
-    return this.age < lifeSpan && this.hunger > minimumHunger && this.fitness > minimumFitness;
+    return this.age < lifeSpan && this.hunger < maximumHunger && this.fitness > minimumFitness;
     }
 };
 
