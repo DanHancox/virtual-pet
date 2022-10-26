@@ -4,6 +4,14 @@ const maximumHunger = 10;
 const minimumHunger = 0;
 const startingAge = 0;
 const lifeSpan = 30;
+const aging = 1;
+const getHungry = 5;
+const fatigue = 3;
+const walkies = 4;
+const nibbles = 3;
+const fitnessDanger = 3;
+const hungerDanger = 5;
+
 
 //Creating the constructor for Pet
 function Pet(name){
@@ -12,27 +20,18 @@ function Pet(name){
     this.hunger = minimumHunger
     this.fitness = maximumFitness
 }
-
-
 Pet.prototype = {
     get isAlive () {
     return this.age < lifeSpan && this.hunger < maximumHunger && this.fitness > minimumFitness;
     }
 };
 
-//create variables to use rather than writing repetitive numbers in the objects. these const variables have global scope
-const aging = 1;
-const getHungry = 5;
-const fatigue = 3;
 //Pet growing older, higher age and hunger, less fitness
 Pet.prototype.growUp = function() {
     this.age += aging;
     this.hunger += getHungry;
     this.fitness -= fatigue;
 }
-
-
-const walkies = 4;
 //Elevates the level of your pets fitness by 4, unless already maxed fitness
 Pet.prototype.walk = function () { 
     if (!this.isAlive) {
@@ -43,11 +42,7 @@ Pet.prototype.walk = function () {
         if(this.fitness > maximumFitness) {
         this.fitness = maximumFitness;
     }};
-
-
 //Feeding your pet to lower hunger
-const nibbles = 3
-
 Pet.prototype.feedASnack = function(){
     if (!this.isAlive) {
         throw new Error('Your pet is DEAD! Well done... Bravo..');
@@ -57,7 +52,6 @@ Pet.prototype.feedASnack = function(){
         this.hunger = minimumHunger;
         }
     }
-
 //finds a naughty lasagna and aint hungry no mo 
 Pet.prototype.lasagna = function () {
     if (!this.isAlive) {
@@ -65,11 +59,6 @@ Pet.prototype.lasagna = function () {
     }
     this.hunger = minimumHunger;
 };
-
-
-
-const fitnessDanger = 3
-const hungerDanger = 5
 //your pet needs a check up to see its current state of health
 Pet.prototype.checkUp = function () {
     if (!this.isAlive) {
